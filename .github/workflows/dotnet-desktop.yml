@@ -23,8 +23,9 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore Rubeus.sln
 
+    # FIX IS HERE: We added /p:TargetFrameworkVersion=v4.7.2
     - name: Build Rubeus (Release)
-      run: msbuild Rubeus.sln /p:Configuration=Release /p:Platform="Any CPU"
+      run: msbuild Rubeus.sln /p:Configuration=Release /p:Platform="Any CPU" /p:TargetFrameworkVersion=v4.7.2
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
